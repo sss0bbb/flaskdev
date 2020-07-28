@@ -26,7 +26,7 @@ def index():
 		try:
 			db.session.add(new_task)
 			db.session.commit()
-			return redirect('/')
+			return redirect(url_for('index'))
 		except:
 			return 'there was an issue adding your task'
 	else:
@@ -39,7 +39,7 @@ def delete(id):
 	try:
 		db.session.delete(task_to_delete)
 		db.session.commit()
-		return redirect('/')
+		return redirect(url_for('index'))
 	except:
 		return 'there was a problem deleting that task'
 
@@ -52,7 +52,7 @@ def update(id):
 		
 		try:
 			db.session.commit()
-			return redirect('/')
+			return redirect(url_for('index'))
 		except:
 			return 'there was in issue updating your task'
 	else:
